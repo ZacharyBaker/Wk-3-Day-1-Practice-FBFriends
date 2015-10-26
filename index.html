@@ -14,12 +14,12 @@
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
 
-        <input class="form-control" placeholder="Search Anything About Your Friends">
+        <!--<input class="form-control" placeholder="Search Anything About Your Friends" ng-model="searchTerm.name">-->
         <!-- STEP 5: Get rid of the one above when you uncomment the below-->
-          <!--
-        <input class="form-control" placeholder="Search Name">
-        <input class="form-control" placeholder="Search Location">
-          -->
+          
+        <input class="form-control" placeholder="Search Name" ng-model="searchTerm.name">
+        <input class="form-control" placeholder="Search Location" ng-model="searchTerm.current_location.$">
+          
 
         <select class="input-medium">
           <option>Name</option>
@@ -40,7 +40,7 @@
     
 
     <ul>
-     <div ng-repeat="friend in friends">
+     <div ng-repeat="friend in friends | filter: searchTerm">
        <li class='friend'>
         <img class="profile-pic" src={{friend.pic_square}}>
 
@@ -51,7 +51,7 @@
         </div>
 
         <div class="status">
-          Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
+          Status: {{friend.status.message}} <span class="hashtag">#ihateprovo</span>
         </div>
 
         <div class="num-friends">
@@ -65,7 +65,7 @@
      
      
      
-      <li class='friend'>
+      <!--<li class='friend'>
         <img class="profile-pic" src='http://placebear.com/50/50.jpg'>
 
         <h3>Cali Fornia</h3>
@@ -81,7 +81,7 @@
         <div class="num-friends">
           Friends: 1,367
         </div>
-      </li>
+      </li>-->
     </ul>
   </div>
 
